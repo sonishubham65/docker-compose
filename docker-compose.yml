@@ -1,0 +1,31 @@
+version: "3"
+services:
+  web: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+        - 81:8080
+    volumes:
+        - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: node index
+  #   depends_on:
+  #     - db
+  # db: 
+  #     build: .
+  #     image: mysql:latest
+  #     volumes:
+  #       - ./db:/var/lib/mysql/data
+  #     ports: 
+  #         - 3306:3306
+  #     environment:
+  #       - MYSQL_USER=user
+  #       - MYSQL_PASSWORD=pass
+  #       - MYSQL_ROOT_PASSWORD=pass
+  #       - MYSQL_DATABASE=dishpal
+  #       # - MYSQL_MAX_ALLOWED_PACKET=1024M
+  #       # - MYSQL_INNODB_BUFFER_POOL_SIZE=1G
+  #       # - MYSQL_INNODB_LOG_FILE_SIZE=256M
+  #       # - MYSQL_INNODB_LOG_BUFFER_SIZE=256M
+      
